@@ -4,7 +4,7 @@
 # Date        : 12 June 2019,
 # Description : Installing Static Docker Binaries on Ubuntu or Redhat,
 #               Installing Static Tomcat Binaries on Ubuntu or Redhat,
-#               Deploying  Generic Jenkins WAR into Tomcat App Server.
+#               Deploying Generic Jenkins WAR into Tomcat App Server.
 
 # Note: Please run this script with root privilages.
 

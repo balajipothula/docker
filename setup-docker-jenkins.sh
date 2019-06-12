@@ -4,16 +4,20 @@
 # Date        : 12 June 2019,
 # Description : Installing Static Docker Binaries on Ubuntu or Redhat,
 #               Installing Static Tomcat Binaries on Ubuntu or Redhat,
-#               Deploying Generic Jenkins WAR into Tomcat App Server.
+#               Deploying Generic Jenkins WAR into Tomcat8 App Server.
 
 # Note: Please run this script with root privilages.
+
+readonly DOCKER_VER=18.09.6
+readonly TOMCAT_MAJOR_VER=8
+readonly TOMCAT_VER=${TOMCAT_MAJOR_VER}.5.42
 
 # uninstalling old versions of docker.
 # for ubuntu uncomment below cmd.
 # apt -y remove docker.io
 
 # downloading docker static binaries.
-wget https://download.docker.com/linux/static/stable/x86_64/docker-18.09.6.tgz -O docker.tgz
+wget https://download.docker.com/linux/static/stable/x86_64/docker-${DOCKER_VER}.tgz -O docker.tgz
 
 # extracting docker tar ball
 # and rename docker directory
@@ -30,12 +34,12 @@ dockerd &
 sleep 10
 
 # downloading tomcat static binaries.
-wget https://www-us.apache.org/dist/tomcat/tomcat-8/v8.5.42/bin/apache-tomcat-8.5.42.tar.gz -O tomcat.tar.gz
+wget https://www-us.apache.org/dist/tomcat/tomcat-${TOMCAT_MAJOR_VER}/v${TOMCAT_VER}/bin/apache-tomcat-${TOMCAT_VER}.tar.gz -O tomcat.tar.gz
 
 # extracting tomcat tar ball
 # renaming   tomcat directory
 # removing   tomcat tar ball.
-tar xzf tomcat.tar.gz && mv apache-tomcat-8.5.42 .tomcat && rm -rf tomcat.tar.gz
+tar xzf tomcat.tar.gz && mv apache-tomcat-${TOMCAT_VER} .tomcat && rm -rf tomcat.tar.gz
 
 # removing non essential text files.
 find /root/.tomcat -maxdepth 1 -type f -delete

@@ -57,7 +57,7 @@ wget http://mirrors.jenkins.io/war-stable/latest/jenkins.war -O /root/.tomcat/we
 docker pull balajipothula/jenkins:latest
 
 # running docker container.
-docker run --name jenkins -d -i -p 8080:8080 --privileged -v /root/.m2:/root/.m2 -v /root/.jenkins:/root/.jenkins -v /root/.tomcat:/root/.tomcat balajipothula/jenkins:latest sh
+docker run --name jenkins -d -i -p 8080:8080 --privileged -v /root/.tomcat:/root/.tomcat -v /root/.jenkins:/root/.jenkins -v /root/.m2:/root/.m2 balajipothula/jenkins:latest sh
 
 # executing tomcat on container.
 docker exec -i jenkins /root/.tomcat/bin/startup.sh

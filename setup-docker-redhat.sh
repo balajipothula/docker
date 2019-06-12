@@ -63,10 +63,10 @@ docker run --name jenkins -d -i -p 8080:8080 --privileged -v /root/.jenkins:/roo
 docker exec -i jenkins /root/.tomcat/bin/startup.sh
 
 # sleep 10 seconds.
-sleep 10
+sleep 20
 
 # echo statement.
-echo "$(tput setaf 2)jenkins admin password $(tput sgr 0)"
+echo "jenkins admin password"
 
 # jenkins initial admin password.
 cat /root/.jenkins/secrets/initialAdminPassword

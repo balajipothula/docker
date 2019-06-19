@@ -38,7 +38,7 @@ export PATH="$PATH:/root/.docker"
 echo 'export PATH="$PATH:/root/.docker"' >> ${PROFILE}
 
 # loading docker path in current shell
-#source ${PROFILE}
+source ${PROFILE}
 
 # executing docker daemon.
 dockerd &

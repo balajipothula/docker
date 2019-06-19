@@ -17,7 +17,7 @@ readonly DOCKER_ROOT=${ROOT}/.docker
 readonly TOMCAT_ROOT=${ROOT}/.tomcat
 readonly M2_ROOT=${ROOT}/.m2
 readonly JENKINS_ROOT=${ROOT}/.jenkins
-readonly PROFILE=${ROOT}/.profile
+readonly BASHRC=${ROOT}/.bashrc
 
 # uninstalling old versions of docker.
 # for ubuntu uncomment below cmd.
@@ -35,10 +35,10 @@ tar xzf ${ROOT}/docker.tgz && mv ${ROOT}/docker ${ROOT}/.docker && rm -rf ${ROOT
 export PATH="$PATH:${DOCKER_ROOT}"
 
 # setting docker path permanently.
-echo 'export PATH="$PATH:/root/.docker"' >> ${PROFILE}
+echo 'export PATH="$PATH:/root/.docker"' >> ${BASHRC}
 
 # loading docker path in current shell
-source ${PROFILE}
+source ${BASHRC}
 
 # executing docker daemon.
 dockerd &

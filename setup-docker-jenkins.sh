@@ -33,6 +33,12 @@ tar xzf ${ROOT}/docker.tgz && mv ${ROOT}/docker ${ROOT}/.docker && rm -rf ${ROOT
 # setting docker path.
 export PATH="$PATH:${DOCKER_ROOT}"
 
+# setting docker path permanently.
+echo 'export PATH="$PATH:${DOCKER_ROOT}"' >> /root/.profile
+
+# loading docker path in current shell
+#source /root/.profile
+
 # executing docker daemon.
 dockerd &
 

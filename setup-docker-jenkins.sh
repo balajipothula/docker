@@ -21,7 +21,7 @@ readonly PROFILE=${ROOT}/.profile
 
 # uninstalling old versions of docker.
 # for ubuntu uncomment below cmd.
-apt -y remove docker.io
+# apt -y remove docker.io
 
 # downloading docker static binaries.
 wget https://download.docker.com/linux/static/stable/x86_64/docker-${DOCKER_VER}.tgz -O ${ROOT}/docker.tgz

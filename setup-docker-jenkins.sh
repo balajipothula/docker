@@ -21,7 +21,7 @@ readonly PROFILE=${ROOT}/.profile
 
 # uninstalling old versions of docker.
 # for ubuntu uncomment below cmd.
-# apt -y remove docker.io
+apt -y remove docker.io
 
 # downloading docker static binaries.
 wget https://download.docker.com/linux/static/stable/x86_64/docker-${DOCKER_VER}.tgz -O ${ROOT}/docker.tgz
@@ -32,7 +32,7 @@ wget https://download.docker.com/linux/static/stable/x86_64/docker-${DOCKER_VER}
 tar xzf ${ROOT}/docker.tgz && mv ${ROOT}/docker ${ROOT}/.docker && rm -rf ${ROOT}/docker.tgz
 
 # setting docker path.
-export PATH="$PATH:/root/.docker"
+export PATH="$PATH:${DOCKER_ROOT}"
 
 # setting docker path permanently.
 echo 'export PATH="$PATH:/root/.docker"' >> ${PROFILE}

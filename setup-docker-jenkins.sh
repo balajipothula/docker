@@ -32,10 +32,10 @@ wget https://download.docker.com/linux/static/stable/x86_64/docker-${DOCKER_VER}
 tar xzf ${ROOT}/docker.tgz && mv ${ROOT}/docker ${ROOT}/.docker && rm -rf ${ROOT}/docker.tgz
 
 # setting docker path.
-export PATH="$PATH:${DOCKER_ROOT}"
+export PATH="$PATH:/root/.docker"
 
 # setting docker path permanently.
-echo 'export PATH="$PATH:${DOCKER_ROOT}"' >> ${PROFILE}
+echo 'export PATH="$PATH:/root/.docker"' >> ${PROFILE}
 
 # loading docker path in current shell
 #source ${PROFILE}

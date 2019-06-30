@@ -1,0 +1,6 @@
+FROM alpine:3.9
+RUN apk update && apk upgrade && apk add --no-cache git openjdk8 tomcat-native ttf-dejavu && rm -rf /tmp/* /var/tmp/* /var/cache/apk/* /var/cache/distfiles/*
+VOLUME /root/.tomcat
+VOLUME /root/.jenkins
+VOLUME /root/.m2
+CMD ["/root/.tomcat/bin/catalina.sh", "run"]

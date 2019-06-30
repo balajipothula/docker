@@ -17,11 +17,15 @@ docker load -i webapp-3.9.docker
 # Running temporary container.
 docker run --name webapp_3_9 -i -t balajipothula/webapp:3.9
 
-# Running docker image with volume(-v) stdin(-i) daemon(-d) with port(-p) 80, 443.
+# Running docker container with auto restart volume(-v) stdin(-i) daemon(-d) with port(-p) 8080.
+# (It will create a volume inside the container)
+docker run --name jenkins -d -i --privileged --restart always -p 8080:8080 -v /root/.tomcat:/root/.tomcat -v /root/.jenkins:/root/.jenkins -v /root/.m2:/root/.m2 balajipothula/jenkins:latest
+
+# Running docker container with volume(-v) stdin(-i) daemon(-d) with port(-p) 80, 443.
 # (It will create a volume inside the container)
 docker run --name webapp -d -i -p 80:80 -p 443:443 --privileged -v `pwd`/webapp:/webapp balajipothula/webapp:3.9 sh
 
-# Running docker image with volume(-v) stdin(-i) daemon(-d) with port(-p) 8080.
+# Running docker container with volume(-v) stdin(-i) daemon(-d) with port(-p) 8080.
 # (It will create a volume inside the container)
 docker run --name jenkins -d -i -p 8080:8080 --privileged -v /root/.jenkins:/root/.jenkins -v /root/.m2:/root/.m2 -v /root/.tomcat:/root/.tomcat balajipothula/jenkins:latest sh
 

@@ -1,0 +1,10 @@
+mkdir -p /var/tmp/nginx/client_body
+mkdir -p /var/cache/nginx/client_temp
+mkdir -p /var/cache/nginx/proxy_temp
+mkdir -p /var/cache/nginx/fastcgi_temp
+mkdir -p /var/cache/nginx/uwsgi_temp
+mkdir -p /var/cache/nginx/scgi_temp
+
+mkdir -p /run/nginx
+
+touch /run/nginx/nginx.pid

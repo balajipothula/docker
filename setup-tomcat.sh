@@ -4,7 +4,7 @@
 # Date        : 31 August 2016,
 # Description : Setup Tomcat8.
 
-wget http://mirrors.estointernet.in/apache/tomcat/tomcat-8/v8.5.42/bin/apache-tomcat-8.5.42.tar.gz -O $HOME/root/tomcat.tar.gz && \
+curl http://mirrors.estointernet.in/apache/tomcat/tomcat-8/v8.5.42/bin/apache-tomcat-8.5.42.tar.gz -o $HOME/root/tomcat.tar.gz && \
 tar xzf $HOME/root/tomcat.tar.gz -C $HOME/root/                                                                                && \
 mv $HOME/root/apache-tomcat-8.5.42 $HOME/root/.tomcat                                                                          && \
 rm -rf $HOME/root/tomcat.tar.gz                                                                                                && \

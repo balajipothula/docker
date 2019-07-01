@@ -1,0 +1,24 @@
+FROM alpine:3.9
+RUN addgroup -g 101 -S nginx
+RUN adduser -S -D -H -u 101 -h /var/cache/nginx -s /sbin/nologin -G nginx -g nginx nginx
+RUN apk update && apk upgrade && apk add --no-cache nginx
+
+RUN mkdir -p /var/tmp/nginx/client_body
+RUN mkdir -p /var/cache/nginx/client_temp
+RUN mkdir -p /var/cache/nginx/proxy_temp
+RUN mkdir -p /var/cache/nginx/fastcgi_temp
+RUN mkdir -p /var/cache/nginx/uwsgi_temp
+RUN mkdir -p /var/cache/nginx/scgi_temp
+
+RUN mkdir -p /run/nginx
+
+RUN touch /run/nginx/nginx.pid
+
+EXPOSE 80
+STOPSIGNAL SIGTERM
+
+VOLUME /root/webapp
+
+CMD ["nginx", "-c", "/root/webapp/nginx/conf/nginx.conf"]
+
+CMD ["nginx", "-g", "daemon off;", "-c", "/root/webapp/nginx/conf/nginx.conf"]

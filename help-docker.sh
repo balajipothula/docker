@@ -20,6 +20,7 @@ docker run --name webapp_3_9 -i -t balajipothula/webapp:3.9
 # Running docker container with auto restart volume(-v) stdin(-i) daemon(-d) with port(-p) 8080.
 # (It will create a volume inside the container)
 docker run --name jenkins -d -i --privileged --restart always -p 8080:8080 -v $HOME/root/.tomcat:/root/.tomcat -v $HOME/root/.jenkins:/root/.jenkins -v $HOME/root/.m2:/root/.m2 balajipothula/jenkins:2.176.1
+
 # Running docker container with volume(-v) stdin(-i) daemon(-d) with port(-p) 80, 443.
 # (It will create a volume inside the container)
 docker run --name webapp -d -i -p 80:80 -p 443:443 --privileged -v `pwd`/webapp:/webapp balajipothula/webapp:3.9 sh

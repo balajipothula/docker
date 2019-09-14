@@ -2,7 +2,10 @@
 
 # Author      : BALAJI POTHULA <balaji.pothula@techie.com>,
 # Date        : 22 June 2019,
-# Description : Docker setup on RHEL7.
+# Description : Docker setup on RHEL.
+
+# update package repositories.
+yum -y update
 
 # installing docker required packages.
 yum -y install yum-utils device-mapper-persistent-data lvm2

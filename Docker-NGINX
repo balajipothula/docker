@@ -19,6 +19,9 @@ STOPSIGNAL SIGTERM
 
 VOLUME /root/webapp
 
+HEALTHCHECK --interval=30s --timeout=30s --start-period=0s --retries=3 CMD curl --fail 127.0.0.1 || exit 1
+HEALTHCHECK --interval=30s --timeout=30s --start-period=0s --retries=3 CMD wget --no-verbose --tries=1 --spider 127.0.0.1 || exit 1
+
 CMD ["nginx", "-c", "/root/webapp/nginx/conf/nginx.conf"]
 
 CMD ["nginx", "-g", "daemon off;", "-c", "/root/webapp/nginx/conf/nginx.conf"]

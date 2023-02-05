@@ -22,6 +22,9 @@ docker load -i webapp-3.9.docker
 # Commiting docker image from existing container.
 docker container commit container_id balajipothula/webapp:3.9.1
 
+# Commiting docker image entry point.
+docker container commit --change='CMD ["ash"]' webapp:3.9
+
 # Running temporary container.
 docker run --name webapp_3_9 -i -t balajipothula/webapp:3.9
 

@@ -53,3 +53,6 @@ docker start webapp
 
 # Stoping docker container with name.
 docker stop webapp
+
+# Running health check container.
+docker run --name health_checker -d -t --health-cmd "curl --fail 127.0.0.1" --health-interval=5s --health-retries=1 busybox sh

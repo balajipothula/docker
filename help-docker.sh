@@ -8,6 +8,11 @@
 # username/repo:tag.
 docker build -t balajipothula/webapp:3.9 .
 
+# reTagging docker image.
+# username/repo:tag.
+docker tag 30fb3a7c5f75 balajipothula/webapp:3.9
+docker tag balajipothula/webapp:3.9 balajipothula/webapp:RC3.9
+
 # Saving docker image offline into local machine.
 docker save -o webapp-3.9.docker balajipothula/webapp:3.9
 

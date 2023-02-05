@@ -15,6 +15,7 @@ docker tag balajipothula/webapp:3.9 balajipothula/webapp:RC3.9
 
 # Saving docker image offline into local machine.
 docker save -o webapp-3.9.docker balajipothula/webapp:3.9
+docker image export webapp:3.9 > webapp_3.9.docker
 
 # Loading offline docker image into machine.
 docker load -i webapp-3.9.docker

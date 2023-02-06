@@ -77,3 +77,9 @@ docker run --name health_checker -d -t --health-cmd "curl --fail 127.0.0.1" --he
 docker image prune
 # Removing dangling / unmapped docker images with containers.
 docker image prune -a
+
+# Docker bridge.
+docker network ls
+docker network create --driver bridge webapp_bridge
+docker network inspect webapp_bridge
+docker container run --name webapp --network webapp_bridge --detached --tty busybox:latest

@@ -87,6 +87,7 @@ docker container run --name webapp --network webapp_bridge --detached --tty busy
 # Docker swarm initialisation.
 docker swarm init --advertise-addr 142.93.214.57
 docker service create --name high_availability_webapp --replicas 3 balajipothula/webapp:3.9
+docker service scale high_availability_webapp=6
 docker node ls
 docker service ls
 docker service ps high_availability_webapp

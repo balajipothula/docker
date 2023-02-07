@@ -83,3 +83,10 @@ docker network ls
 docker network create --driver bridge webapp_bridge
 docker network inspect webapp_bridge
 docker container run --name webapp --network webapp_bridge --detached --tty busybox:latest
+
+# Docker swarm initialisation.
+docker swarm init --advertise-addr 142.93.214.57
+docker service create --name high_availability_webapp --replicas 3 balajipothula/webapp:3.9
+docker node ls
+docker service ls
+docker service ps high_availability_webapp

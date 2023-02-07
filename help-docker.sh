@@ -91,3 +91,4 @@ docker service scale high_availability_webapp=6
 docker node ls
 docker service ls
 docker service ps high_availability_webapp
+docker service rm high_availability_webapp

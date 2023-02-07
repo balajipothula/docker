@@ -90,6 +90,7 @@ docker service create --name high_availability_webapp --replicas 3 balajipothula
 docker service scale high_availability_webapp=6
 docker service scale h_a_webapp_1=3 h_a_webapp_2=3
 docker service update --replicas 3 high_availability_webapp
+docker service create --name global_webapp --mode global --detach -tty ubuntu
 docker node ls
 docker service ls
 docker service ps high_availability_webapp

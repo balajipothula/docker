@@ -89,10 +89,15 @@ docker swarm init --advertise-addr 142.93.214.57
 docker service create --name high_availability_webapp --replicas 3 balajipothula/webapp:3.9
 docker node update --label-add region=eu-central-1 node_id
 docker service create --name webapp_service --constraint node.labels.region==eu-central-1 --replicas 3 balajipothula/webapp:3.9
+docker service create --name global_webapp --mode global --detach -tty balajipothula/webapp:3.9
+
+docker network create --driver overlay --opt encrypted webapp_overlay_encrypted
+docker service create --name webapp --network webapp_overlay_encrypted --hostname="{{.Node.Hostname}}-{{.Service.Name}}" --replicas 3 balajipothula/webapp:3.9
+
 docker service scale high_availability_webapp=6
 docker service scale h_a_webapp_1=3 h_a_webapp_2=3
 docker service update --replicas 3 high_availability_webapp
-docker service create --name global_webapp --mode global --detach -tty ubuntu
+
 docker service inspect global_webapp --pretty
 
 docker node inspect node_id --pretty
